@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.scripts]
-server = "dataclean_env.env:app"
+server = "server.app:main"
 
 [project.urls]
 Homepage = "https://huggingface.co/spaces/vaibhav6300/dataclean-openenv"
