@@ -179,3 +179,33 @@ def state(task_id: str = "task1_easy"):
     if task_id not in _envs:
         return {"error": "Call /reset first"}
     return _envs[task_id].state()
+@app.get("/schema")
+def schema():
+    """Return openenv schema — required by validator."""
+    return {
+        "name": "dataclean-openenv",
+        "version": "1.0.0",
+        "tasks": list(TASKS.keys()),
+        "endpoints": {
+            "reset": "/reset",
+            "step": "/step",
+            "state": "/state"
+        },
+        "actions": [
+            "drop_duplicates",
+            "fill_null",
+            "fix_dtype",
+            "drop_outliers",
+            "done"
+        ]
+    }
+
+@app.get("/openenv.yaml")
+def openenv_yaml():
+    """Serve openenv.yaml — required by validator."""
+    import os
+    yaml_path = os.path.join(os.path.dirname(__file__), "..", "openenv.yaml")
+    with open(yaml_path, "r") as f:
+        content = f.read()
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse(content)
