@@ -22,5 +22,8 @@ dependencies = [
     "openenv-core",
 ]
 
+[project.scripts]
+server = "dataclean_env.env:app"
+
 [project.urls]
 Homepage = "https://huggingface.co/spaces/vaibhav6300/dataclean-openenv"
