@@ -1,10 +1,11 @@
-name: dataclean-env
+name: dataclean-openenv
 version: "1.0.0"
 description: >
   A real-world data cleaning environment where an AI agent must
   clean messy CSV datasets by handling missing values, fixing
   data types, removing duplicates, and detecting outliers.
-author: Vaibhav Hongal
+author: vaibhav6300
+space_url: https://huggingface.co/spaces/vaibhav6300/dataclean-openenv
 tags:
   - data-cleaning
   - data-engineering
