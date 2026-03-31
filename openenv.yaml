@@ -1,0 +1,26 @@
+name: dataclean-env
+version: "1.0.0"
+description: >
+  A real-world data cleaning environment where an AI agent must
+  clean messy CSV datasets by handling missing values, fixing
+  data types, removing duplicates, and detecting outliers.
+author: Vaibhav Hongal
+tags:
+  - data-cleaning
+  - data-engineering
+  - real-world
+  - openenv
+tasks:
+  - id: task1_easy
+    name: "Remove Duplicates and Fill Missing Values"
+    difficulty: easy
+  - id: task2_medium
+    name: "Fix Data Types and Standardize Date Formats"
+    difficulty: medium
+  - id: task3_hard
+    name: "Full Cleaning Pipeline with Outlier Detection"
+    difficulty: hard
+endpoints:
+  reset: /reset
+  step: /step
+  state: /state
