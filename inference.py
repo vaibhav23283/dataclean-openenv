@@ -12,16 +12,15 @@ import requests
 
 # ── Read credentials from environment variables ──────────────────────────────
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
-API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY") or "dummy-key"
+API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY") or "hf_dummy_key_placeholder"
 MODEL_NAME   = os.getenv("MODEL_NAME", "meta-llama/Llama-3.1-8B-Instruct")
 ENV_URL      = os.getenv("ENV_URL", "http://localhost:8000")
 
-# ── Import OpenAI client AFTER setting API_KEY ────────────────────────────────
+from openai import OpenAI
 try:
-    from openai import OpenAI
     client = OpenAI(base_url=API_BASE_URL, api_key=API_KEY)
 except Exception as e:
-    print(f"Warning: OpenAI client init issue: {e}")
+    print(f"Warning: {e}")
     client = None
 
 TASKS     = ["task1_easy", "task2_medium", "task3_hard"]
